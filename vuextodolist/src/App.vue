@@ -34,15 +34,12 @@ export default {
   },
   methods: {
     addList() {
-      
       let message = document.getElementById("listInfo").value;
-      
       this.myListObject = {
         info: message,
         type: 0
       };
-     
-      this.$store.commit("pushList", "this.myListObject");
+      this.$store.commit("pushList", this.myListObject);
     }
   }
 };

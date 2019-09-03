@@ -7,14 +7,24 @@ const store = new Vuex.Store({
         todoList: []
     },
     getters: {
-        getList(state){
-            return state.todoList
+        getList(state) {
+            let oldList = state.todoList
+            for (let i = 0; i < state.todoList.length; i++){
+                state.todoList.push(oldList[i].info)
+            }
+            window.console.log(state.todoList)
+                
         }
     },
     mutations: {
         pushList: function (state, myListObject) {
-            window.console.log(myListObject)
-            state.todoList.push(myListObject)
+
+            let oldList = state.todoList;
+            oldList.push(myListObject)
+            state.todoList = [];
+            for (let i = 0; i < oldList.length; i++) {
+                state.todoList.push(oldList[i])
+            }
         }
     }
 })

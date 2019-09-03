@@ -1,7 +1,7 @@
 <template>
     <div>
     <span>{{index}}</span>
-    <span>{{getlistInfo}}</span>
+    <p>{{getlistInfo}}</p>
     </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
     },
     computed:{
         getlistInfo(){
+            window.console.log("1213")
             return this.$store.getters.getList();
 
         }
